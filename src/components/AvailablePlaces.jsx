@@ -1,60 +1,34 @@
-import { useState, useEffect } from "react";
+
+import { useFetch } from "../hooks/useFetch.js";
+
 import Places from "./Places.jsx";
 import Error from "./Error.jsx";
 import { sortPlacesByDistance } from "../loc.js";
 import { fetchAvailablePlaces } from "../http.js";
 
+async function fetchSortedPlaces(){
+  const places = await fetchAvailablePlaces();
+
+  return new Promise((resolve)  => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      
+        const sortedPlaces = sortPlacesByDistance(
+          places,
+          position.coords.latitude,
+          position.coords.longitude
+        );
+        
+        resolve(sortedPlaces)
+    
+      });
+  })
+}
+
+
 // AvailablePlaces component for displaying a list of available places
 export default function AvailablePlaces({ onSelectPlace }) {
-  // State to manage loading status
-  const [isFetching, setIsFetching] = useState(false);
-  // State to store the fetched places data
-  const [availablePlaces, setAvailablePlaces] = useState([]);
-  // State to handle errors during data fetching
-  const [error, setError] = useState();
+  const {isFetching, error, fetchedData : availablePlaces} = useFetch(fetchSortedPlaces, []);
 
-  // useEffect to fetch places data and handle sorting based on distance
-  useEffect(() => {
-    async function fetchPlaces() {
-      setIsFetching(true);
-
-      try {
-        // Fetch available places data
-        const places = await fetchAvailablePlaces();
-
-        // Get user's geolocation
-        navigator.geolocation.getCurrentPosition((position) => {
-          // Sort places by distance from the user's location
-          const sortedPlaces = sortPlacesByDistance(
-            places,
-            position.coords.latitude,
-            position.coords.longitude
-          );
-
-          // Update the state with sorted places
-          setAvailablePlaces(sortedPlaces);
-          setIsFetching(false);
-        });
-      } catch (error) {
-        // Handle errors during data fetching
-        setError({
-          message:
-            error.message || "Could not fetch places, please try again later",
-        });
-      }
-
-      setIsFetching(false);
-    }
-
-    // Fetch places when the component mounts
-    fetchPlaces();
-  }, []); // Depend on an empty array to run the effect only once when the component mounts
-
-  // Callback function to handle confirmation after an error
-  const handleConfirm = () => {
-    setIsFetching(true);
-    setError(null);
-  };
 
   // If there is an error, render the Error component
   if (error) {
