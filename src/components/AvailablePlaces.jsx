@@ -47,7 +47,7 @@ export default function AvailablePlaces({ onSelectPlace }) {
       title="Available Places"
       places={availablePlaces}
       isLoading={isFetching}
-      loadingText="Fetching Places Data..."
+      loadingText="Retrieving places based on your current location..."
       fallbackText="No places available."
       onSelectPlace={onSelectPlace}
     />
