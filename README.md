@@ -19,3 +19,22 @@ The project is a web application named "PlacePicker" that allows users to create
 - *Error Handling:*
   Display error messages in modal dialogs for a better user experience.
   Handle errors during the update of user places gracefully.
+
+# Project Structure
+The project is structured into server-side (Express API) and client-side (React Application).
+
+## Server-side (Express API)
+- *Dependencies:*
+
+express for creating the web server.
+body-parser for handling JSON request bodies.
+node:fs/promises for asynchronous file system operations.
+
+- *Endpoints:*
+
+GET /places: Retrieve places.
+GET /user-places: Retrieve user-specific places.
+PUT /user-places: Update user-specific places.
+CORS Configuration:
+
+Allow all domains to access the API for flexibility.
