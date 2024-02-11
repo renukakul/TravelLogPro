@@ -7,15 +7,15 @@ The project is a web application named "PlacePicker" that allows users to create
 
 *Features*
 
-*User Places Management:*
-Retrieve a list of places from the server.
-View and manage user-specific places, including adding and removing them.
+- *User Places Management:*
+  Retrieve a list of places from the server.
+  View and manage user-specific places, including adding and removing them.
 
-*User Interface:*
-Display user places using the Places component.
-Show available places using the AvailablePlaces component.
-Modal dialogs for error messages and place deletion confirmation.
+- *User Interface:*
+  Display user places using the Places component.
+  Show available places using the AvailablePlaces component.
+  Modal dialogs for error messages and place deletion confirmation.
 
-*Error Handling:*
-Display error messages in modal dialogs for a better user experience.
-Handle errors during the update of user places gracefully.
+- *Error Handling:*
+  Display error messages in modal dialogs for a better user experience.
+  Handle errors during the update of user places gracefully.
