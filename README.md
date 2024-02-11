@@ -54,8 +54,33 @@ The project is structured into server-side (Express API) and client-side (React 
   - The Modal component is a React component designed to render a modal dialog. It uses the useRef and useEffect hooks to manage the modal's visibility based on the open prop. The createPortal function is utilized to render the modal as a child of a different DOM element.
  
 
-*Custom Hook *-
+*Custom Hook*-
 - useFetch-
   - The useFetch custom React hook is designed to handle data fetching in a component.
   - It uses the useEffect and useState hooks to manage the fetching status, handle errors, and store the fetched data. The hook returns an object containing the current state and a function to update the fetched data.
+ 
+
+# Installation and Usage
+Prerequisites - NodeJS and npm should be installed on the machine
+
+1. To Start Backend NodeJs Server:
+   ```bash
+   cd backend
+   npm install
+   npm start
+   ```
+2. To Start Frontend React Website
+    ```bash
+    npm install
+    npm run dev
+    ```
+
+# License
+React:
+Released under the MIT License, which is a permissive open-source license
+
+Node.js and Express:
+Node.js is released under the MIT License 
+
+  
 
