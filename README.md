@@ -31,10 +31,8 @@ body-parser for handling JSON request bodies.
 node:fs/promises for asynchronous file system operations.
 
 - *Endpoints:*
-
-GET /places: Retrieve places.
-GET /user-places: Retrieve user-specific places.
-PUT /user-places: Update user-specific places.
-CORS Configuration:
-
-Allow all domains to access the API for flexibility.
+  GET /places: Retrieve places.
+  GET /user-places: Retrieve user-specific places.
+  PUT /user-places: Update user-specific places.
+- *CORS Configuration:*
+  Allow all domains to access the API for flexibility.
