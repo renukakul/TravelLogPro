@@ -5,7 +5,7 @@ https://github.com/renukakul/React_Tourist_destination/assets/135245268/2f4a4ba1
 # Project Overview
 The project is a web application named "PlacePicker" that allows users to create and manage their personal collection of places they would like to visit or have visited. It consists of a server-side Express API for handling data storage and retrieval, and a client-side React application for the user interface.
 
-Features
+*Features*
 User Places Management:
 
 Retrieve a list of places from the server.
